@@ -19,7 +19,6 @@ class ArtikelTableViewCell: UITableViewCell {
     
     let artikel: UILabel = {
         let label = UILabel()
-        label.text = "der Vogel"
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(named: "textColor")
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,8 +40,8 @@ class ArtikelTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addViews()
-        
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -67,18 +66,4 @@ class ArtikelTableViewCell: UITableViewCell {
 
         artikel.attributedText = attributedText
     }
-
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

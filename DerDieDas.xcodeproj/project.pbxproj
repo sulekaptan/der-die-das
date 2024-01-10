@@ -66,20 +66,52 @@
 		E48D57D12B4EF82C006DC1C4 /* DerDieDas */ = {
 			isa = PBXGroup;
 			children = (
+				E48D57F52B4F4FDE006DC1C4 /* ViewControllers */,
+				E48D57F42B4F4FD4006DC1C4 /* Cells */,
+				E48D57F32B4F4FBC006DC1C4 /* TabBar */,
+				E48D57F22B4F4FA8006DC1C4 /* Other */,
+				E48D57EC2B4EF964006DC1C4 /* ArtikelData.swift */,
+				E48D57E02B4EF82D006DC1C4 /* Info.plist */,
+			);
+			path = DerDieDas;
+			sourceTree = "<group>";
+		};
+		E48D57F22B4F4FA8006DC1C4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
 				E48D57D22B4EF82C006DC1C4 /* AppDelegate.swift */,
 				E48D57D42B4EF82C006DC1C4 /* SceneDelegate.swift */,
-				E48D57D62B4EF82C006DC1C4 /* HomeViewController.swift */,
 				E48D57DB2B4EF82D006DC1C4 /* Assets.xcassets */,
 				E48D57DD2B4EF82D006DC1C4 /* LaunchScreen.storyboard */,
-				E48D57E02B4EF82D006DC1C4 /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E48D57F32B4F4FBC006DC1C4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E48D57F02B4EFD16006DC1C4 /* TabViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E48D57F42B4F4FD4006DC1C4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E48D57EE2B4EFBEE006DC1C4 /* ArtikelTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E48D57F52B4F4FDE006DC1C4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E48D57D62B4EF82C006DC1C4 /* HomeViewController.swift */,
 				E48D57E62B4EF937006DC1C4 /* BookmarksViewController.swift */,
 				E48D57E82B4EF94B006DC1C4 /* GameViewController.swift */,
 				E48D57EA2B4EF958006DC1C4 /* CustomPopupViewController.swift */,
-				E48D57EC2B4EF964006DC1C4 /* ArtikelData.swift */,
-				E48D57EE2B4EFBEE006DC1C4 /* ArtikelTableViewCell.swift */,
-				E48D57F02B4EFD16006DC1C4 /* TabViewController.swift */,
 			);
-			path = DerDieDas;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

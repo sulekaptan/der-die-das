@@ -34,7 +34,7 @@ final class TabViewController: UITabBarController {
 
         nav1.tabBarItem = UITabBarItem(title: "Suche", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Lesezeichen", image: UIImage(systemName: "bookmark.fill"), tag: 2)
-        nav3.tabBarItem = UITabBarItem(title: "Übung", image: UIImage(systemName: "gamecontroller"), tag: 3)
+        nav3.tabBarItem = UITabBarItem(title: "Übung", image: UIImage(systemName: "pencil.and.outline"), tag: 3)
 
         // TabBar ve NavigationBar renklerini ayarlayın
         tabBar.backgroundColor = UIColor(named: "bgColor")

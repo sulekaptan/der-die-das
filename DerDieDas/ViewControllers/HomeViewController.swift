@@ -70,25 +70,21 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            filteredData = filterData(for: searchText)
-            if !filteredData.isEmpty {
-                tableView.reloadData()
-            } else {
-                tableView.reloadData()
-            }
-        }
+        filteredData = filterData(for: searchText)
+        tableView.reloadData()
+    }
 
-        func filterData(for searchText: String) -> [String] {
-            var filteredData: [String] = []
-            for (key, value) in ArtikelData.data {
-                if key.lowercased().contains(searchText.lowercased()) {
-                    let result = "\(value) \(key)"
-                    filteredData.append(result)
-                }
+    func filterData(for searchText: String) -> [String] {
+        var filteredData: [String] = []
+        for (key, value) in ArtikelData.data {
+            if key.lowercased().contains(searchText.lowercased()) {
+                let result = "\(value) \(key)"
+                filteredData.append(result)
             }
-            return filteredData
         }
-        
+        return filteredData
+    }
+    
     func extractArtikel(from result: String) -> String? {
         let components = result.components(separatedBy: " ")
         if components.count > 0 {
@@ -96,8 +92,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         }
         return nil
     }
-
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -109,8 +103,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artikelTableViewCell") as! ArtikelTableViewCell
         let result = filteredData[indexPath.row]
-        if extractArtikel(from: result) != nil {
-            cell.setArtikelText(result)
+        if let artikel = extractArtikel(from: result) {
+            cell.setArtikelText(artikel)
         }
         return cell
     }
