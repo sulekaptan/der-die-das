@@ -26,35 +26,15 @@ class ArtikelTableViewCell: UITableViewCell {
         return label
     }()
     
-    let soundImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.isUserInteractionEnabled = true
-        return imageView
-    }()
-    
-    let bookmarkImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.isUserInteractionEnabled = true
-        return imageView
-    }()
-    
     
     func addViews(){
         addSubview(stackView)
         stackView.addArrangedSubview(artikel)
-        stackView.addArrangedSubview(soundImage)
-        stackView.addArrangedSubview(bookmarkImage)
 
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-
-            soundImage.widthAnchor.constraint(equalToConstant: 20),
-            soundImage.heightAnchor.constraint(equalToConstant: 20),
-
-            bookmarkImage.widthAnchor.constraint(equalToConstant: 20),
-            bookmarkImage.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
 
@@ -87,6 +67,7 @@ class ArtikelTableViewCell: UITableViewCell {
 
         artikel.attributedText = attributedText
     }
+
 
 
     override func awakeFromNib() {

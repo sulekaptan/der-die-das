@@ -50,12 +50,12 @@ class CustomPopupViewController: UIViewController {
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
-//        button.setImage(UIImage(named: "bookmark"), for: .normal)
-        button.setImage(UIImage(named: "bookmark")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(named: "save"), for: .normal)
+//        button.setImage(UIImage(named: "save")?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
 
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        button.addTarget(self, action: #selector(translateButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -104,10 +104,9 @@ class CustomPopupViewController: UIViewController {
     
     
     func displayWord(_ word: String) {
-            selectedWord = word
-            artikelLabel.text = word
-        }
-
+        selectedWord = word
+        artikelLabel.text = word
+    }
     
     @objc func closePopupView(_ gesture: UITapGestureRecognizer) {
             dismiss(animated: true, completion: nil)
@@ -118,23 +117,27 @@ class CustomPopupViewController: UIViewController {
         print("Translate button tapped!")
     }
     
+    @objc func saveButtonTapped() {
+        print("save button tapped!")
+    }
+    
     func openTranslationURL(for artikel: String) {
-            // Belirli bir kelimenin çeviri bağlantısını oluşturun
-            if let translatedURL = createTranslationURL(for: artikel) {
-                // URL'yi açın
-                if UIApplication.shared.canOpenURL(translatedURL) {
-                    UIApplication.shared.open(translatedURL, options: [:], completionHandler: nil)
+                // Belirli bir kelimenin çeviri bağlantısını oluşturun
+                if let translatedURL = createTranslationURL(for: artikel) {
+                    // URL'yi açın
+                    if UIApplication.shared.canOpenURL(translatedURL) {
+                        UIApplication.shared.open(translatedURL, options: [:], completionHandler: nil)
+                    }
                 }
             }
-        }
         
-        func createTranslationURL(for keyword: String) -> URL? {
-            // Belirli bir kelimenin çeviri bağlantısını oluşturun
-            let baseTranslationURL = "https://translate.google.com/?hl=tr&sl=de&tl=en&text="
-            if let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-                let fullURLString = baseTranslationURL + encodedKeyword
-                return URL(string: fullURLString)
+    func createTranslationURL(for keyword: String) -> URL? {
+                // Belirli bir kelimenin çeviri bağlantısını oluşturun
+                let baseTranslationURL = "https://translate.google.com/?hl=tr&sl=de&tl=en&text="
+                if let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                    let fullURLString = baseTranslationURL + encodedKeyword
+                    return URL(string: fullURLString)
+                }
+                return nil
             }
-            return nil
-        }
-}
+    }

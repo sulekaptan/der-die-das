@@ -89,13 +89,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             return filteredData
         }
         
-        func extractArtikel(from result: String) -> String? {
-            let components = result.components(separatedBy: " ")
-            if components.count > 1 {
-                return components[0] // Bu kısmı güncelledim
-            }
-            return nil
+    func extractArtikel(from result: String) -> String? {
+        let components = result.components(separatedBy: " ")
+        if components.count > 0 {
+            return components.joined(separator: " ")
         }
+        return nil
+    }
+
+
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
