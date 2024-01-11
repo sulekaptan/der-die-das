@@ -15,6 +15,12 @@ class BookmarksViewController: UIViewController {
         tableView.backgroundColor = .clear
         return tableView
     }()
+    
+    var bookmarks: [String] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +30,14 @@ class BookmarksViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Load bookmarks from UserDefaults
+        if let savedBookmarks = UserDefaults.standard.stringArray(forKey: "bookmarks") {
+            bookmarks = savedBookmarks
+        }
     }
     
-    func addViews(){
+    func addViews() {
         view.addSubview(tableView)
     }
     
@@ -37,26 +48,27 @@ class BookmarksViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            tableView.heightAnchor.constraint(equalToConstant: 600)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor) 
         ])
         
         tableView.register(ArtikelTableViewCell.self, forCellReuseIdentifier: "artikelTableViewCell")
     }
-
-
 }
 
 extension BookmarksViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return bookmarks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artikelTableViewCell") as! ArtikelTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artikelTableViewCell", for: indexPath) as! ArtikelTableViewCell
+        
+        // Set the cell content with the bookmarked word
+        let bookmarkText = bookmarks[indexPath.row]
+        cell.setArtikelText(bookmarkText)
         
         return cell
     }
-    
-    
 }
+
