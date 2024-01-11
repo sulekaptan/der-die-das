@@ -15,6 +15,19 @@ struct ArtikelData {
         "Tisch": "der",
         "Stuhl": "der",
         "Blume": "die",
-        "Tür": "die"
+        "Tür": "die",
+        "Aal": "der",
+        "Aar": "der",
+        "Aas": "das",
+        "Aasgeier": "der",
+        "Abakus": "der",
+        "Abarbeitung": "die",
+        "Abart": "die",
+        "Abbau": "der",
+        "Abbiegung": "die",
+        "Abbild": "das",
+        "Abbildung": "die",
+        "Abbildungsmaßstab": "der",
+        "Abblendlicht": "das"
     ]
 }
