@@ -34,6 +34,7 @@ class BookmarksViewController: UIViewController {
         // Load bookmarks from UserDefaults
         if let savedBookmarks = UserDefaults.standard.stringArray(forKey: "bookmarks") {
             bookmarks = savedBookmarks
+            tableView.reloadData()
         }
     }
     

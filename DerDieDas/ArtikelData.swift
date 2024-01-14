@@ -28,6 +28,11 @@ struct ArtikelData {
         "Abbild": "das",
         "Abbildung": "die",
         "Abbildungsmaßstab": "der",
-        "Abblendlicht": "das"
+        "Abblendlicht": "das",
+        "Abbrennen": "das",
+        "Abbreviatur": "die",
+        "Abbruch": "der",
+        "Abbuchen": "das",
+        
     ]
 }

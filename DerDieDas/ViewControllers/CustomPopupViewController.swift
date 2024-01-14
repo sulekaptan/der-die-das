@@ -124,6 +124,7 @@ class CustomPopupViewController: UIViewController {
 
         // Close the popup view
         dismiss(animated: true, completion: nil)
+        
 
         print("UserDefaults Bookmarks: \(bookmarks ?? [])")
 
