@@ -103,7 +103,7 @@ class GameViewController: UIViewController {
 
     
     @objc func optionSelected(_ sender: UIButton) {
-        let selectedOption = sender.titleLabel?.text ?? ""
+        let selectedOption : String = String(sender.titleLabel?.text ?? "") 
         checkAnswer(selectedOption)
         nextWord()
     }
@@ -112,7 +112,7 @@ class GameViewController: UIViewController {
         // Doğru kelimeyi almak için, rastgele bir çifti alıp value'sunu kullanıyoruz.
         let correctWord = artikelData[currentQuestionIndex].value
         
-        if selectedOption == correctWord {
+        if selectedOption.lowercased() == correctWord.lowercased() {
             correctCount += 1
         } else {
             wrongCount += 1
@@ -140,5 +140,8 @@ class GameViewController: UIViewController {
         }
     
     func finishGame() {
+        correctLabel.text = "Correct: 0"
+        wrongLabel.text = "Wrong: 0"
+        currentQuestionIndex = 0
     }
 }

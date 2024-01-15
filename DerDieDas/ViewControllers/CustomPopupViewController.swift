@@ -46,7 +46,7 @@ class CustomPopupViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .systemBlue
         button.backgroundColor = .systemFill
-        button.setTitle("Save", for: .normal)
+        button.setTitle("Speichern", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
         button.setImage(UIImage(named: "save"), for: .normal)
@@ -124,10 +124,6 @@ class CustomPopupViewController: UIViewController {
 
         // Close the popup view
         dismiss(animated: true, completion: nil)
-        
-
-        print("UserDefaults Bookmarks: \(bookmarks ?? [])")
-
     }
 
     
