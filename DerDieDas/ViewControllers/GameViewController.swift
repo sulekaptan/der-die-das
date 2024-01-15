@@ -109,14 +109,12 @@ class GameViewController: UIViewController {
     }
     
     func checkAnswer(_ selectedOption: String) {
-        // Doğru kelimeyi almak için, rastgele bir çifti alıp value'sunu kullanıyoruz.
         let correctWord = artikelData[currentQuestionIndex].value
         
         if selectedOption.lowercased() == correctWord.lowercased() {
             correctCount += 1
         } else {
             wrongCount += 1
-            // Burada yanlış seçeneği gösterme işlemi yapılabilir.
         }
         
         updateScoreLabels()
@@ -143,5 +141,6 @@ class GameViewController: UIViewController {
         correctLabel.text = "Correct: 0"
         wrongLabel.text = "Wrong: 0"
         currentQuestionIndex = 0
+        nextWord()
     }
 }
