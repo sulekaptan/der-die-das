@@ -21,22 +21,16 @@ final class TabViewController: UITabBarController {
         let tab2 = BookmarksViewController()
         tab2.title = "Lesezeichen"
         tab2.navigationItem.rightBarButtonItem = modeToggleButton
-
-        let tab3 = GameViewController()
-        tab3.title = "Teste dich selbst!"
-        tab3.navigationItem.rightBarButtonItem = modeToggleButton
-
+         
         updateModeToggleButton()
 
         let nav1 = UINavigationController(rootViewController: tab1)
         let nav2 = UINavigationController(rootViewController: tab2)
-        let nav3 = UINavigationController(rootViewController: tab3)
 
         nav1.tabBarItem = UITabBarItem(title: "Suche", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Lesezeichen", image: UIImage(systemName: "bookmark.fill"), tag: 2)
-        nav3.tabBarItem = UITabBarItem(title: "Übung", image: UIImage(systemName: "pencil.and.outline"), tag: 3)
 
-        // TabBar ve NavigationBar renklerini ayarlayın
+
         tabBar.backgroundColor = UIColor(named: "bgColor")
         tabBar.layer.shadowColor = UIColor(named: "textColor")?.cgColor
         tabBar.layer.shadowOffset = CGSize(width: 1, height: 2)
@@ -50,14 +44,11 @@ final class TabViewController: UITabBarController {
                 if let navigationBar2 = (viewControllers?[1] as? UINavigationController)?.navigationBar {
                     setupNavigationBarColors(navigationBar2)
                 }
-                if let navigationBar3 = (viewControllers?[2] as? UINavigationController)?.navigationBar {
-                    setupNavigationBarColors(navigationBar3)
-                }
 
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "textColor")!], for: .selected)
         UITabBar.appearance().tintColor = UIColor(named: "textColor")!
 
-        setViewControllers([nav1, nav2, nav3], animated: true)
+        setViewControllers([nav1, nav2], animated: true)
         hidesBottomBarWhenPushed = false
     }
 
@@ -82,9 +73,6 @@ final class TabViewController: UITabBarController {
             }
             if let button2 = (viewControllers?[1] as? UINavigationController)?.topViewController?.navigationItem.rightBarButtonItem {
                 button2.image = UIImage(systemName: iconName)
-            }
-            if let button3 = (viewControllers?[2] as? UINavigationController)?.topViewController?.navigationItem.rightBarButtonItem {
-                button3.image = UIImage(systemName: iconName)
             }
         }
     }
