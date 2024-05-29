@@ -1,7 +1,7 @@
 ### der die das App
 der die das is an iOS application designed to help users learn and practice German articles.
 - UIKit
-- User deafults
+- User defaults
 - Core data
 
 ### App Screenshots
